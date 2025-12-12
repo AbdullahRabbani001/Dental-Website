@@ -197,45 +197,14 @@ window.addEventListener('scroll', function() {
     }
 });
 
-// ==========================================
-// MOBILE MENU TOGGLE
-// ==========================================
-const mobileMenuToggle = document.getElementById('mobileMenuToggle');
-const navLinks = document.querySelector('.nav-links');
+  const navToggle = document.getElementById("navToggle");
+    const navLinks = document.getElementById("navLinks");
 
-if (mobileMenuToggle) {
-    mobileMenuToggle.addEventListener('click', function() {
-        this.classList.toggle('active');
-        navLinks.classList.toggle('active');
-        
-        // Prevent body scroll when menu is open
-        if (navLinks.classList.contains('active')) {
-            document.body.style.overflow = 'hidden';
-        } else {
-            document.body.style.overflow = '';
-        }
+    navToggle.addEventListener("click", () => {
+        navLinks.classList.toggle("show");
     });
-    
-    // Close menu when clicking on a link
-    document.querySelectorAll('.nav-link').forEach(link => {
-        link.addEventListener('click', function() {
-            mobileMenuToggle.classList.remove('active');
-            navLinks.classList.remove('active');
-            document.body.style.overflow = '';
-        });
-    });
-    
-    // Close menu when clicking outside
-    document.addEventListener('click', function(event) {
-        const isClickInsideNav = navLinks.contains(event.target) || mobileMenuToggle.contains(event.target);
-        
-        if (!isClickInsideNav && navLinks.classList.contains('active')) {
-            mobileMenuToggle.classList.remove('active');
-            navLinks.classList.remove('active');
-            document.body.style.overflow = '';
-        }
-    });
-}
+
+
 
 
 
